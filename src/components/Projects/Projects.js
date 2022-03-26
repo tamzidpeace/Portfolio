@@ -9,6 +9,7 @@ import editor from "../../Assets/Projects/codeEditor.png";
 import chatify from "../../Assets/Projects/chatify.png";
 import suicide from "../../Assets/Projects/suicide.png";
 import bitsOfCode from "../../Assets/Projects/blog.png";
+import ibm from "../../Assets/Projects/ibm.png";
 
 function Projects() {
   return (
@@ -24,11 +25,11 @@ function Projects() {
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={chatify}
+              imgPath={ibm}
               isBlog={false}
-              title="Chatify"
-              description="Personal Chat Room or Workspace to share resources and hangout with friends build with react.js, Material-UI, and Firebase. Have features which allows user for realtime messaging, image sharing as well as supports reactions on messages."
-              link="https://github.com/soumyajit4419/Chatify"
+              title="IBM"
+              description="A School Management System for Ibrahim Memorial Shikkha Niketon. This system allows the school to manage the students, teachers, and parents. It also allows the school to manage the school's admission and the school's events."
+              link="https://ibm.orbitsource.net/"
             />
           </Col>
 
