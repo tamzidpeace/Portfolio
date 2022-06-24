@@ -2,15 +2,13 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import {
   AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-  AiFillSkype
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
 function Footer() {
-  let date = new Date();
-  let year = date.getFullYear();
+  // let date = new Date();
+  // let year = date.getFullYear();
   return (
     <Container fluid className="footer">
       <Row>
@@ -18,7 +16,7 @@ function Footer() {
           <h3>Designed and Developed by tamzidpeace</h3>
         </Col>
         <Col md="4" className="footer-copywright">
-          <h3></h3>
+          {/* <h3></h3> */}
         </Col>
         <Col md="4" className="footer-body">
           <ul className="footer-icons">
@@ -26,7 +24,7 @@ function Footer() {
               <a
                 href="https://github.com/tamzidpeace"
                 style={{ color: "white" }}
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <AiFillGithub />
@@ -34,19 +32,19 @@ function Footer() {
             </li>
             <li className="social-icons">
               <a
-                href="#"
+                href="mailto:tamjedpeace@gmail.com"
                 style={{ color: "white" }}
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
               >
-                <AiFillSkype />
+                <SiGmail />
               </a>
             </li>
             <li className="social-icons">
               <a
                 href="https://www.linkedin.com/in/arafat-kamal-3637b4122/"
                 style={{ color: "white" }}
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <FaLinkedinIn />

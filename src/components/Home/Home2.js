@@ -4,11 +4,9 @@ import myImg from "../../Assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
 import {
   AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-  AiFillSkype,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
 function Home2() {
   return (
@@ -20,12 +18,11 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I fell in love with programming and I have at least learnt
-              something, I think… 🤷‍♂️
+              I fell in love with programming and I like to explore new technologies.
               <br />
               <br />I am fluent in
               <i>
-                <b className="purple"> Dart, PHP, Javascript and Java. </b>
+                <b className="purple"> Dart, PHP and Javascript. </b>
               </i>
               <br />
               <br />
@@ -74,12 +71,12 @@ function Home2() {
               </li>
               <li className="social-icons">
                 <a
-                  href="#"
+                  href="mailto:tamjedpeace@gmail.com"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
                 >
-                  <AiFillSkype />
+                  <SiGmail />
                 </a>
               </li>
               <li className="social-icons">
