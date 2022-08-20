@@ -7,8 +7,7 @@ function Type() {
       options={{
         strings: [
           "Programmer",
-          "Web Developer",
-          "Flutter Developer",
+          "Laravel, React, Flutter Developer",
           "Open Source Contributor",
         ],
         autoStart: true,
