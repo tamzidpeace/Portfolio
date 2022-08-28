@@ -25,16 +25,10 @@ function Home2() {
               <br />
               <br />
               My field of Interest's are building new &nbsp;
-              <i>
-                <b className="purple">Mobile, Web Technologies and Products </b> and
-                also in areas related to{" "}
-                <b className="purple">
-                  AI.
-                </b>
-              </i>
+              <i><b className="purple">Mobile, Web Technologies and Products </b> </i>
               <br />
               <br />
-              Whenever possible, I also apply my passion for developing products
+              Whenever possible, I apply my passion for developing products
               with <b className="purple">Laravel, Flutter</b> and
               <i>
                 <b className="purple">

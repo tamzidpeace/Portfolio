@@ -6,9 +6,9 @@ function Type() {
     <Typewriter
       options={{
         strings: [
-          "Programmer",
-          "Laravel, React, Flutter Developer",
+          "Problem Solver",
           "Open Source Contributor",
+          "Laravel, React & Flutter Developer",
         ],
         autoStart: true,
         loop: true,

@@ -10,7 +10,7 @@ function AboutCard() {
           <p style={{ textAlign: "justify" }}>
             Hi Everyone, I am <span className="purple">Arafat Kamal </span>
             from <span className="purple"> Dhaka, Bangladesh.</span>
-            <br />I am a web and mobile application developer.
+            <br />I am a full stack web and mobile application developer.
             <br />
             <br />
             Apart from developing, some other activities that I love to do!
@@ -20,17 +20,12 @@ function AboutCard() {
               <ImPointRight /> Problem Solving
             </li>
             <li className="about-activity">
-              <ImPointRight /> Reading Books
-            </li>
-            <li className="about-activity">
               <ImPointRight /> Exploring New Technologies
             </li>
+            <li className="about-activity">
+              <ImPointRight /> Reading Books
+            </li>
           </ul>
-
-          {/* <p style={{ marginBlockEnd: 0, color: "rgb(155 126 172)" }}>
-            "Strive to build things that make a difference!"{" "}
-          </p> */}
-          {/* <footer className="blockquote-footer">tamzidpeace</footer> */}
         </blockquote>
       </Card.Body>
     </Card>
