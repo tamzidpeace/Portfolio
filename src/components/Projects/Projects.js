@@ -5,10 +5,9 @@ import Particle from "../Particle";
 
 import ibm from "../../Assets/Projects/ibm1.png";
 import maway from "../../Assets/Projects/maway.png";
-import emotion from "../../Assets/Projects/emotion.jpeg";
-import editor from "../../Assets/Projects/codeEditor.png";
-import suicide from "../../Assets/Projects/suicide.png";
-import bitsOfCode from "../../Assets/Projects/blog.png";
+import unimass_portfolio from '../../Assets/Projects/unimass_portfolio.png'
+import ebox_live from '../../Assets/Projects/ebox-live.png'
+
 
 function Projects() {
   return (
@@ -38,32 +37,32 @@ function Projects() {
               imgPath={maway}
               isBlog={false}
               title="Maway"
-              description="Driving Management System for Maway. This system allows the school to manage the instructors and students. Instructors can spread their skills to students from renowned schools. Students can learn from the instructors and can also learn from the school."
-              link="maway.dk"
+              description="Driving Management System for Maway. This system allows the school to manage the instructors and students. Instructors can spread their skills to students from renowned schools. Students can learn from the instructors and can ..."
+              link="https://maway.atiar.info/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={unimass_portfolio}
+              isBlog={false}
+              title="Unimass"
+              description="Since its inception in 2010, Unimass Holdings Ltd. creates greater value of living for its Clients, Landowners and Stakeholders. Unimass Holdings Ltd. has made it a success story by establishing long term mutually beneficial relationship..."
+              link="https://unimassportfolio.atiar.info/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={ebox_live}
+              isBlog={false}
+              title="Ebox-Live"
+              description="An FTP Media Server. To enjoy free movies, tv series, and documentaries you can visit here. The latest Multimedias are available here. Contents are regularly updated. The most valuable thing about this server is ...."
+              link="http://103.49.168.173/home"
             />
           </Col>
 
           {/* <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={editor}
-              isBlog={false}
-              title="Editor.io"
-              description="Online code and markdown editor build with react.js. Online Editor which supports html, css, and js code with instant view of website. Online markdown editor for building README file which supports GFM, Custom Html tags with toolbar and instant preview.Both the editor supports auto save of work using Local Storage"
-              link="https://github.com/soumyajit4419/Editor.io"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={bitsOfCode}
-              isBlog={false}
-              title="Bits-0f-C0de"
-              description="My personal blog page build with Next.js and Tailwind Css which takes the content from makdown files and renders it using Next.js. Supports dark mode and easy to write blogs using markdown."
-              link="https://github.com/soumyajit4419/Bits-0f-C0de"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
             <ProjectCard
               imgPath={suicide}
               isBlog={false}
