@@ -1,10 +1,17 @@
 import React from "react";
-import Particles from "react-particles-js";
+import { Particles } from "react-tsparticles";
+import { loadFull } from "tsparticles";
 
 function Particle() {
+  const particlesInit = async (main) => {
+    await loadFull(main);
+  };
+
   return (
     <Particles
-      params={{
+      id="tsparticles"
+      init={particlesInit}
+      options={{
         particles: {
           number: {
             value: 160,
@@ -34,7 +41,7 @@ function Particle() {
         },
         interactivity: {
           events: {
-            onclick: {
+            onClick: {
               enable: true,
               mode: "push",
             },

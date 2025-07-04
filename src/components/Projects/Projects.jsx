@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import ProjectCard from "./ProjectCards";
-import Particle from "../Particle";
+import ProjectCard from "./ProjectCards.jsx";
+import Particle from "../Particle.jsx";
 
 import ibm from "../../Assets/Projects/ibm1.png";
 import maway from "../../Assets/Projects/maway.png";
