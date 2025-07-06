@@ -8,7 +8,7 @@ function Type() {
         strings: [
           "Problem Solver",
           "Open Source Contributor",
-          "Laravel, React & Flutter Developer",
+          "Laravel, React, Vue & Flutter Developer",
         ],
         autoStart: true,
         loop: true,

@@ -20,7 +20,7 @@ function Home2() {
               <br />
               <br />I am fluent in
               <i>
-                <b className="purple"> Dart, PHP and Javascript. </b>
+                <b className="purple"> PHP, Javascript & Dart. </b>
               </i>
               <br />
               <br />
@@ -29,11 +29,11 @@ function Home2() {
               <br />
               <br />
               Whenever possible, I apply my passion for developing products
-              with <b className="purple">Laravel, Flutter</b> and
+              with <b className="purple">Laravel, React, Vue</b> and
               <i>
                 <b className="purple">
                   {" "}
-                  Modern Javascript Library and ReactJS
+                  Modern Javascript Library and Flutter
                 </b>
               </i>
             </p>
