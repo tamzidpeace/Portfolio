@@ -1,8 +1,10 @@
-import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards.jsx";
 import Particle from "../Particle.jsx";
 
+import hishabi from "../../Assets/Projects/hishabi.png";
+import jibonsheba from "../../Assets/Projects/jibonsheba.png";
+import limadi from "../../Assets/Projects/limadi.png";
 import ibm from "../../Assets/Projects/ibm1.png";
 import maway from "../../Assets/Projects/maway.png";
 import unimass_portfolio from '../../Assets/Projects/unimass_portfolio.png'
@@ -21,6 +23,37 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          {/* Hishabi */}
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={hishabi}
+              isBlog={false}
+              title="Hishabi"
+              description="Inventory & POS system built with Laravel and Vue. Multi-package architecture, REST APIs, real-time reporting."
+              link="https://hishabi.com"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={jibonsheba}
+              isBlog={false}
+              title="Jibon Sheba"
+              description="Diagnostic management system. Role-based access, lab test tracking, automation workflows."
+              link="https://jibonsheba.com"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={limadi}
+              isBlog={false}
+              title="Limadi"
+              description="Fleet management platform with real-time route optimization, vehicle tracking. Laravel backend, Flutter app, React admin dashboard."
+              link="https://limadi.dk"
+            />
+          </Col>
+
           {/* IBM */}
           <Col md={4} className="project-card">
             <ProjectCard
@@ -62,26 +95,7 @@ function Projects() {
             />
           </Col>
 
-          {/* <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={suicide}
-              isBlog={false}
-              title="Ai For Social Good"
-              description="Using 'Natural Launguage Processing' for the detection of suicide-related posts and user's suicide ideation in cyberspace  and thus helping in sucide prevention."
-              link="https://github.com/soumyajit4419/AI_For_Social_Good"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={emotion}
-              isBlog={false}
-              title="Face Recognition and Emotion Detection"
-              description="Trained a CNN classifier using 'FER-2013 dataset' with Keras and tensorflow backened. The classifier sucessfully predicted the various types of emotions of human. And the highest accuracy obtained with the model was 60.1%.
-              Then used Open-CV to detect the face in an image and then pass the face to the classifer to predict the emotion of a person."
-              link="https://github.com/soumyajit4419/Face_And_Emotion_Detection"
-            />
-          </Col> */}
+         
         </Row>
       </Container>
     </Container>
