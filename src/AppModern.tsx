@@ -1,20 +1,20 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Preloader from "@/components/Pre.tsx";
-import Navbar from "@/components/Navbar.tsx";
-import Footer from "@/components/Footer.tsx";
+import Navbar from "@/components/NavbarTailwind.tsx";
+import Footer from "@/components/FooterTailwind.tsx";
 import ScrollToTop from "@/components/ScrollToTop.tsx";
 import ErrorBoundary from "@/components/ErrorBoundary.tsx";
 import { useUIStore } from "@/stores";
 import "./style.css";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "@/styles/tailwind.css";
 
 // Lazy load route components for better performance
-const Home = lazy(() => import("@/components/Home/Home.tsx"));
-const About = lazy(() => import("@/components/About/About.tsx"));
-const Projects = lazy(() => import("@/components/Projects/Projects.tsx"));
-const Resume = lazy(() => import("@/components/Resume/ResumeNew.tsx"));
+const Home = lazy(() => import("@/components/Home/HomeTailwind.tsx"));
+const About = lazy(() => import("@/components/About/AboutTailwind.tsx"));
+const Projects = lazy(() => import("@/components/Projects/ProjectsTailwind.tsx"));
+const Resume = lazy(() => import("@/components/Resume/ResumeTailwind.tsx"));
 
 // Loading component for Suspense
 const RouteLoader: React.FC = () => (

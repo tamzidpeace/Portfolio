@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
+import "./styles/tailwind.css";
 import App from "./AppModern.tsx";
 
 const container = document.getElementById("root");
