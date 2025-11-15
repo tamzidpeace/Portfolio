@@ -55,7 +55,7 @@ declare module '@/components/Home/Home2.jsx' {
   export default Home2;
 }
 
-declare module '@/components/Home/Type.jsx' {
+declare module '@/components/Home/Type.tsx' {
   const Type: React.FC;
   export default Type;
 }

@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import homeLogo from "@/Assets/home-main.png";
 import Particle from "@/components/Particle.tsx";
 import Home2 from "@/components/Home/Home2.tsx";
-import Type from "@/components/Home/Type.jsx";
+import Type from "@/components/Home/Type.tsx";
 
 const Home: React.FC = memo(() => {
   return (
