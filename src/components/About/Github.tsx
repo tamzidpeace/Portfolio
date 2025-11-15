@@ -1,5 +1,4 @@
 import React from "react";
-import { Row } from "react-bootstrap";
 import GitHubCalendar from "react-github-calendar";
 
 function Github(): React.ReactElement {
@@ -9,18 +8,20 @@ function Github(): React.ReactElement {
   };
 
   return (
-    <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-      <h1 className="project-heading" style={{ paddingBottom: "20px" }}>
-        Days I <strong className="purple">Code</strong>
+    <div className="flex flex-col items-center justify-center py-8">
+      <h1 className="text-3xl sm:text-4xl font-bold text-white mb-8">
+        Days I <strong className="text-gradient">Code</strong>
       </h1>
-      <GitHubCalendar
-        username="st-arafat"
-        blockSize={15}
-        blockMargin={5}
-        theme={colourTheme}
-        fontSize={16}
-      />
-    </Row>
+      <div className="w-full max-w-4xl bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700">
+        <GitHubCalendar
+          username="st-arafat"
+          blockSize={15}
+          blockMargin={5}
+          theme={colourTheme}
+          fontSize={16}
+        />
+      </div>
+    </div>
   );
 }
 

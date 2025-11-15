@@ -1,5 +1,4 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
 import {
   DiJavascript1,
   DiReact,
@@ -15,45 +14,36 @@ import { FaLaravel } from "react-icons/fa";
 import { RiVuejsFill } from "react-icons/ri";
 
 function Techstack(): React.ReactElement {
+  const techIcons = [
+    { icon: DiPhp, name: "PHP" },
+    { icon: FaLaravel, name: "Laravel" },
+    { icon: BiLogoPostgresql, name: "PostgreSQL" },
+    { icon: DiMysql, name: "MySQL" },
+    { icon: DiJavascript1, name: "JavaScript" },
+    { icon: DiReact, name: "React" },
+    { icon: RiVuejsFill, name: "Vue.js" },
+    { icon: DiGit, name: "Git" },
+    { icon: SiFirebase, name: "Firebase" },
+    { icon: DiDart, name: "Dart" },
+    { icon: SiFlutter, name: "Flutter" },
+    { icon: DiAndroid, name: "Android" },
+  ];
+
   return (
-    <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiPhp />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <FaLaravel />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <BiLogoPostgresql />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiMysql />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiJavascript1 />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiReact />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <RiVuejsFill />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiDart />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiFlutter />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiAndroid />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiGit />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiFirebase />
-      </Col>
-    </Row>
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 justify-items-center py-8">
+      {techIcons.map((tech, index) => (
+        <div
+          key={index}
+          className="group flex flex-col items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-purple-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/20 w-20 h-20 sm:w-24 sm:h-24"
+          title={tech.name}
+        >
+          <tech.icon className="text-3xl sm:text-4xl text-purple-400 group-hover:text-purple-300 transition-colors" />
+          <span className="text-xs text-slate-400 mt-2 group-hover:text-white transition-colors">
+            {tech.name}
+          </span>
+        </div>
+      ))}
+    </div>
   );
 }
 
