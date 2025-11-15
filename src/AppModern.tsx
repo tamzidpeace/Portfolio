@@ -1,9 +1,9 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Preloader from "@/components/Pre.jsx";
+import Preloader from "@/components/Pre.tsx";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
-import ScrollToTop from "@/components/ScrollToTop.jsx";
+import ScrollToTop from "@/components/ScrollToTop.tsx";
 import ErrorBoundary from "@/components/ErrorBoundary.tsx";
 import { useUIStore } from "@/stores";
 import "./style.css";
@@ -12,8 +12,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 // Lazy load route components for better performance
 const Home = lazy(() => import("@/components/Home/Home.tsx"));
-const About = lazy(() => import("@/components/About/About.jsx"));
-const Projects = lazy(() => import("@/components/Projects/Projects.jsx"));
+const About = lazy(() => import("@/components/About/About.tsx"));
+const Projects = lazy(() => import("@/components/Projects/Projects.tsx"));
 const Resume = lazy(() => import("@/components/Resume/Resume.jsx"));
 
 // Loading component for Suspense

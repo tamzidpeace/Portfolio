@@ -64,7 +64,7 @@ export default function Resume() {
               loading={<div style={{ padding: "20px" }}>Loading PDF...</div>}
               error={<div style={{ padding: "20px", color: "red" }}>Error loading PDF</div>}
             >
-              {Array.from(new Array(numPages), (el, index) => (
+              {Array.from(new Array(numPages), (_, index) => (
                 <Page
                   key={`page_${index + 1}`}
                   pageNumber={index + 1}

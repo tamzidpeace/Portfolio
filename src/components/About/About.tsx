@@ -1,15 +1,18 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle.tsx";
-import Github from "./Github.jsx";
-import Techstack from "./Techstack.jsx";
-import Aboutcard from "./AboutCard.jsx";
+import Github from "./Github.tsx";
+import Techstack from "./Techstack.tsx";
+import Aboutcard from "./AboutCard.tsx";
 import laptopImg from "../../Assets/about.png";
-import Toolstack from "./Toolstack.jsx";
+import Toolstack from "./Toolstack.tsx";
 
-function About() {
+function About(): React.ReactElement {
   return (
-    <Container fluid className="about-section">
+    <Container
+      fluid
+      className="about-section"
+    >
       <Particle />
       <Container>
         <Row style={{ justifyContent: "center", padding: "10px" }}>
@@ -31,7 +34,11 @@ function About() {
             style={{ paddingTop: "120px", paddingBottom: "50px" }}
             className="about-img"
           >
-            <img src={laptopImg} alt="about" className="img-fluid" />
+            <img
+              src={laptopImg}
+              alt="about"
+              className="img-fluid"
+            />
           </Col>
         </Row>
         <h1 className="project-heading">

@@ -1,5 +1,6 @@
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import ProjectCard from "./ProjectCards.jsx";
+import ProjectCard from "./ProjectCards.tsx";
 import Particle from "../Particle.tsx";
 
 import hishabi from "../../Assets/Projects/hishabi.png";
@@ -10,8 +11,7 @@ import maway from "../../Assets/Projects/maway.png";
 import unimass_portfolio from '../../Assets/Projects/unimass_portfolio.png'
 import ebox_live from '../../Assets/Projects/ebox-live.png'
 
-
-function Projects() {
+function Projects(): React.ReactElement {
   return (
     <Container fluid className="project-section">
       <Particle />
