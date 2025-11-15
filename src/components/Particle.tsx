@@ -2,8 +2,8 @@ import React from "react";
 import { Particles } from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
-function Particle() {
-  const particlesInit = async (main) => {
+const Particle: React.FC = () => {
+  const particlesInit = async (main: any) => {
     await loadFull(main);
   };
 
@@ -25,7 +25,7 @@ function Particle() {
             opacity: 0.03,
           },
           move: {
-            direction: "right",
+            direction: "right" as const,
             speed: 0.05,
           },
           size: {
@@ -56,6 +56,6 @@ function Particle() {
       }}
     />
   );
-}
+};
 
 export default Particle;

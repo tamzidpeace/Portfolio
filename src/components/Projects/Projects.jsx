@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards.jsx";
-import Particle from "../Particle.jsx";
+import Particle from "../Particle.tsx";
 
 import hishabi from "../../Assets/Projects/hishabi.png";
 import jibonsheba from "../../Assets/Projects/jibonsheba.png";

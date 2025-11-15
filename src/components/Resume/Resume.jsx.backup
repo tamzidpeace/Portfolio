@@ -4,25 +4,17 @@ import Button from "react-bootstrap/Button";
 import Particle from "../Particle.tsx";
 import { AiOutlineDownload } from "react-icons/ai";
 import pdf from "../../Assets/Arafat_Kamal_CV.pdf";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
+import { Viewer } from "@react-pdf-viewer/core";
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import { Worker } from "@react-pdf-viewer/core";
 
-// Configure PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
-
-export default function Resume() {
+export default function ResumeTest() {
   const [width, setWidth] = useState(1200);
-  const [numPages, setNumPages] = useState();
 
   useEffect(() => {
     setWidth(window.innerWidth);
   }, []);
-
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
-  }
-
+  
   return (
     <div>
       <Container
@@ -49,31 +41,19 @@ export default function Resume() {
             width: "100%",
           }}
         >
+          <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+          
           <div
             style={{
               border: "1px solid rgba(0, 0, 0, 0.3)",
               height: "750px",
-              overflow: "auto",
-              width: "100%",
-              maxWidth: "800px",
             }}
           >
-            <Document
-              file={pdf}
-              onLoadSuccess={onDocumentLoadSuccess}
-              loading={<div style={{ padding: "20px" }}>Loading PDF...</div>}
-              error={<div style={{ padding: "20px", color: "red" }}>Error loading PDF</div>}
-            >
-              {Array.from(new Array(numPages), (el, index) => (
-                <Page
-                  key={`page_${index + 1}`}
-                  pageNumber={index + 1}
-                  scale={width > 786 ? 1.7 : 0.6}
-                  loading={<div style={{ padding: "20px" }}>Loading page...</div>}
-                />
-              ))}
-            </Document>
+            <Viewer fileUrl={pdf} />
           </div>
+          </Worker>
+
+          
         </Row>
 
         <Row

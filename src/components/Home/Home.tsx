@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import homeLogo from "../../Assets/home-main.png";
-import Particle from "../Particle.jsx";
-import Home2 from "./Home2.jsx";
-import Type from "./Type.jsx";
+import homeLogo from "@/Assets/home-main.png";
+import Particle from "@/components/Particle.tsx";
+import Home2 from "@/components/Home/Home2.jsx";
+import Type from "@/components/Home/Type.jsx";
 
-function Home() {
+const Home: React.FC = memo(() => {
   return (
     <section>
       <Container fluid className="home-section" id="home">
@@ -28,7 +28,14 @@ function Home() {
             </Col>
 
             <Col md={5} style={{ paddingBottom: 20 }}>
-              <img src={homeLogo} alt="home pic" className="img-fluid" />
+              <img 
+                src={homeLogo} 
+                alt="home pic" 
+                className="img-fluid"
+                loading="lazy"
+                width="100%"
+                height="auto"
+              />
             </Col>
           </Row>
         </Container>
@@ -36,6 +43,8 @@ function Home() {
       <Home2 />
     </section>
   );
-}
+});
+
+Home.displayName = 'Home';
 
 export default Home;

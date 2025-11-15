@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useCallback } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
@@ -8,38 +8,35 @@ import {
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
 } from "react-icons/ai";
-
 import { CgFileDocument } from "react-icons/cg";
+import { useScroll } from "@/hooks/useScroll";
 
-function NavBar() {
-  const [expand, updateExpanded] = useState(false);
-  const [navColour, updateNavbar] = useState(false);
+const NavBar: React.FC = () => {
+  const [expanded, setExpanded] = useState(false);
+  const { isScrolled } = useScroll(20);
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
-    }
-  }
+  const handleToggle = useCallback(() => {
+    setExpanded(prev => !prev);
+  }, []);
 
-  window.addEventListener("scroll", scrollHandler);
+  const handleNavClick = useCallback(() => {
+    setExpanded(false);
+  }, []);
 
   return (
     <Navbar
-      expanded={expand}
+      expanded={expanded}
       fixed="top"
       expand="md"
-      className={navColour ? "sticky" : "navbar"}
+      className={isScrolled ? "sticky" : "navbar"}
     >
       <Container>
         <Navbar.Brand href="/">
+          {/* Add your logo here */}
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
+          onClick={handleToggle}
         >
           <span></span>
           <span></span>
@@ -48,7 +45,7 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto" defaultActiveKey="#home">
             <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
+              <Nav.Link as={Link} to="/" onClick={handleNavClick}>
                 <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
               </Nav.Link>
             </Nav.Item>
@@ -57,7 +54,7 @@ function NavBar() {
               <Nav.Link
                 as={Link}
                 to="/about"
-                onClick={() => updateExpanded(false)}
+                onClick={handleNavClick}
               >
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> About
               </Nav.Link>
@@ -67,7 +64,7 @@ function NavBar() {
               <Nav.Link
                 as={Link}
                 to="/project"
-                onClick={() => updateExpanded(false)}
+                onClick={handleNavClick}
               >
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: "2px" }}
@@ -80,7 +77,7 @@ function NavBar() {
               <Nav.Link
                 as={Link}
                 to="/resume"
-                onClick={() => updateExpanded(false)}
+                onClick={handleNavClick}
               >
                 <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
               </Nav.Link>
@@ -90,6 +87,6 @@ function NavBar() {
       </Container>
     </Navbar>
   );
-}
+};
 
 export default NavBar;

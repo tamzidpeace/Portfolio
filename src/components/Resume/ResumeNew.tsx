@@ -13,13 +13,13 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/b
 
 export default function Resume() {
   const [width, setWidth] = useState(1200);
-  const [numPages, setNumPages] = useState();
+  const [numPages, setNumPages] = useState<number>();
 
   useEffect(() => {
     setWidth(window.innerWidth);
   }, []);
 
-  function onDocumentLoadSuccess({ numPages }) {
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
     setNumPages(numPages);
   }
 
