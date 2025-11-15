@@ -56,6 +56,9 @@ export default function Resume() {
               overflow: "auto",
               width: "100%",
               maxWidth: "800px",
+              display: "flex",
+              justifyContent: "center",
+              backgroundColor: "#f8f9fa"
             }}
           >
             <Document
@@ -65,12 +68,15 @@ export default function Resume() {
               error={<div style={{ padding: "20px", color: "red" }}>Error loading PDF</div>}
             >
               {Array.from(new Array(numPages), (_, index) => (
-                <Page
-                  key={`page_${index + 1}`}
-                  pageNumber={index + 1}
-                  scale={width > 786 ? 1.7 : 0.6}
-                  loading={<div style={{ padding: "20px" }}>Loading page...</div>}
-                />
+                <div key={`page_${index + 1}`} style={{ marginBottom: "20px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" }}>
+                  <Page
+                    pageNumber={index + 1}
+                    scale={width > 1200 ? 1.2 : width > 786 ? 1.0 : 0.8}
+                    loading={<div style={{ padding: "20px" }}>Loading page...</div>}
+                    renderTextLayer={true}
+                    renderAnnotationLayer={true}
+                  />
+                </div>
               ))}
             </Document>
           </div>

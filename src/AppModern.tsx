@@ -14,7 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Home = lazy(() => import("@/components/Home/Home.tsx"));
 const About = lazy(() => import("@/components/About/About.tsx"));
 const Projects = lazy(() => import("@/components/Projects/Projects.tsx"));
-const Resume = lazy(() => import("@/components/Resume/Resume.jsx"));
+const Resume = lazy(() => import("@/components/Resume/ResumeNew.tsx"));
 
 // Loading component for Suspense
 const RouteLoader: React.FC = () => (
