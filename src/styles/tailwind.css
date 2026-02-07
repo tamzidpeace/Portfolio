@@ -240,6 +240,35 @@
       inset 0 0 15px rgba(139, 92, 246, 0.3);
   }
 
+  /* Liquid Glass Footer */
+  .liquid-glass-footer {
+    @apply py-8 px-6 rounded-3xl;
+    background: rgba(30, 20, 50, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    box-shadow: 
+      0 8px 32px 0 rgba(139, 92, 246, 0.15),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Social Icons in Footer */
+  .liquid-glass-social-icon {
+    @apply text-slate-300 transition-all duration-300 p-3 rounded-full;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+  }
+
+  .liquid-glass-social-icon:hover {
+    @apply text-white;
+    background: rgba(139, 92, 246, 0.2);
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 
+      0 0 15px rgba(139, 92, 246, 0.5),
+      inset 0 0 10px rgba(139, 92, 246, 0.2);
+    transform: translateY(-2px);
+  }
+
 }
 
 /* Preloader styles */
