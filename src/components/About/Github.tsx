@@ -12,7 +12,7 @@ function Github(): React.ReactElement {
       <h1 className="text-3xl sm:text-4xl font-bold text-white mb-8">
         Days I <strong className="text-gradient">Code</strong>
       </h1>
-      <div className="w-full max-w-4xl bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700">
+      <div className="w-full max-w-full overflow-x-auto bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700 flex justify-center">
         <GitHubCalendar
           username="st-arafat"
           blockSize={15}
