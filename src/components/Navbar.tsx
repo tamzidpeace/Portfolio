@@ -1,16 +1,15 @@
 import { useState, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
-import { useScroll } from "@/hooks/useScroll";
 
 const NavbarTailwind: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isScrolled } = useScroll(20);
+  const location = useLocation();
 
   const handleToggle = useCallback(() => {
     setIsMenuOpen(prev => !prev);
@@ -27,42 +26,46 @@ const NavbarTailwind: React.FC = () => {
     { path: "/resume", icon: CgFileDocument, label: "Resume" },
   ];
 
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? "bg-slate-900/95 backdrop-blur-sm shadow-lg border-b border-slate-700" 
-        : "bg-transparent"
-    }`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="flex items-center justify-between h-16">
+    <nav className="fixed top-0 left-0 right-0 z-50 py-4 px-4">
+      <div className="container mx-auto max-w-7xl">
+        <div className="flex items-center justify-between">
           {/* Logo/Brand */}
           <Link 
             to="/" 
-            className="text-2xl font-bold text-gradient hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-2 text-2xl font-bold text-gradient hover:opacity-80 transition-opacity z-10"
             onClick={handleNavClick}
           >
-            Portfolio
+            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+              <span className="text-white text-sm font-bold">P</span>
+            </div>
+            <span>Portfolio</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="nav-link flex items-center space-x-2"
-                onClick={handleNavClick}
-              >
-                <item.icon className="text-lg" />
-                <span>{item.label}</span>
-              </Link>
-            ))}
+          {/* Desktop Navigation - Liquid Glass Pill */}
+          <div className="hidden md:flex">
+            <div className="liquid-glass-nav">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`liquid-glass-nav-item ${isActive(item.path) ? 'active' : ''}`}
+                  onClick={handleNavClick}
+                >
+                  <span className="relative z-10">{item.label}</span>
+                </Link>
+              ))}
+            </div>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={handleToggle}
-            className="md:hidden p-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+            className="md:hidden p-2 rounded-lg text-slate-300 hover:text-white liquid-glass-button transition-all duration-300"
             aria-label="Toggle menu"
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
@@ -79,18 +82,18 @@ const NavbarTailwind: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Liquid Glass */}
         <div className={`md:hidden transition-all duration-300 ease-in-out ${
           isMenuOpen 
-            ? "max-h-64 opacity-100" 
+            ? "max-h-96 opacity-100 mt-4" 
             : "max-h-0 opacity-0 overflow-hidden"
         }`}>
-          <div className="py-4 space-y-2">
+          <div className="liquid-glass-mobile">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className="flex items-center space-x-3 px-3 py-2 text-slate-300 hover:text-white hover:bg-slate-700 rounded-md transition-colors"
+                className={`liquid-glass-mobile-item ${isActive(item.path) ? 'active' : ''}`}
                 onClick={handleNavClick}
               >
                 <item.icon className="text-lg" />

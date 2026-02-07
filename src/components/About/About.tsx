@@ -1,10 +1,9 @@
 import React from "react";
 import Particle from "../Particle.tsx";
 import Github from "./Github.tsx";
-import Techstack from "./Techstack.tsx";
+import TechArsenal from "./TechArsenal.tsx";
 import Aboutcard from "./AboutCard.tsx";
 import laptopImg from "../../Assets/about.png";
-import Toolstack from "./Toolstack.tsx";
 
 function About(): React.ReactElement {
   return (
@@ -32,27 +31,12 @@ function About(): React.ReactElement {
           </div>
         </div>
 
-        {/* Skills Section */}
-        <div className="space-y-16">
-          <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8">
-              Professional <strong className="text-gradient">Skill Set</strong>
-            </h1>
-            <Techstack />
-          </div>
+        {/* Technical Arsenal Section */}
+        <TechArsenal />
 
-          {/* Tools Section */}
-          <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8">
-              <strong className="text-gradient">Tools</strong> I use
-            </h1>
-            <Toolstack />
-          </div>
-
-          {/* GitHub Section */}
-          <div className="text-center">
-            <Github />
-          </div>
+        {/* GitHub Section */}
+        <div className="text-center pt-20">
+          <Github />
         </div>
       </div>
     </section>
