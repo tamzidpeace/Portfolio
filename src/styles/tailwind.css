@@ -269,6 +269,49 @@
     transform: translateY(-2px);
   }
 
+  /* Liquid Glass Button - Hero Section */
+  .liquid-glass-btn {
+    @apply inline-flex items-center justify-center px-8 py-3 rounded-full text-slate-300 font-medium transition-all duration-300 relative overflow-hidden;
+    background: rgba(30, 20, 50, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    box-shadow: 
+      0 4px 16px 0 rgba(139, 92, 246, 0.1),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .liquid-glass-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(236, 72, 153, 0.4));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
+  .liquid-glass-btn:hover::before {
+    opacity: 1;
+  }
+
+  .liquid-glass-btn:hover {
+    @apply text-white -translate-y-1;
+    box-shadow: 
+      0 0 20px rgba(139, 92, 246, 0.6),
+      0 0 40px rgba(139, 92, 246, 0.4),
+      inset 0 0 20px rgba(139, 92, 246, 0.2);
+    border-color: rgba(139, 92, 246, 0.5);
+  }
+
+  .liquid-glass-btn span {
+    @apply relative z-10;
+  }
+
 }
 
 /* Preloader styles */
