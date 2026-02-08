@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 @import 'tailwindcss';
 
-/* Custom CSS Variables */
+/* Custom CSS Variables - Dark Theme (Default) */
 :root {
   --section-background-color: linear-gradient(
     to bottom left,
@@ -16,6 +16,53 @@
   );
 
   --imp-text-color: #c770f0;
+  
+  /* Theme Colors */
+  --bg-primary: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+  --bg-secondary: rgba(15, 23, 42, 0.5);
+  --text-primary: white;
+  --text-secondary: rgb(203 213 225);
+  --text-muted: rgb(148 163 184);
+  --glass-bg: rgba(30, 20, 50, 0.6);
+  --glass-border: rgba(139, 92, 246, 0.2);
+  --glass-shadow: rgba(139, 92, 246, 0.15);
+  --card-bg: rgba(30, 41, 59, 0.5);
+  --scrollbar-track: #2d1950;
+  --scrollbar-thumb: rgba(178, 121, 216, 0.959);
+  --preloader-bg: #0c0513;
+  --footer-bg: rgb(10, 4, 22);
+}
+
+/* Light Theme Variables */
+html.light {
+  --section-background-color: linear-gradient(
+    to bottom left,
+    rgba(233, 216, 253, 0.8),
+    rgba(243, 232, 255, 0.95)
+  );
+
+  --image-gradient: linear-gradient(
+    to bottom left,
+    rgba(255, 255, 255, 0.2),
+    rgba(243, 232, 255, 0.4)
+  );
+
+  --imp-text-color: #9333ea;
+  
+  /* Light Theme Colors */
+  --bg-primary: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #f3e8ff 100%);
+  --bg-secondary: rgba(243, 232, 255, 0.7);
+  --text-primary: #1e1b4b;
+  --text-secondary: #4c1d95;
+  --text-muted: #6b7280;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(139, 92, 246, 0.3);
+  --glass-shadow: rgba(139, 92, 246, 0.2);
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --scrollbar-track: #e9d5ff;
+  --scrollbar-thumb: rgba(147, 51, 234, 0.7);
+  --preloader-bg: #f5f3ff;
+  --footer-bg: rgb(243, 232, 255);
 }
 
 /* Base styles */
@@ -34,9 +81,10 @@
     font-family: 'Raleway', 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
-    color: white;
+    background: var(--bg-primary);
+    color: var(--text-primary);
     line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
   }
 
   #root {
@@ -392,4 +440,441 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px 0 var(--glass-shadow);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 
+    0 0 20px rgba(139, 92, 246, 0.5),
+    inset 0 0 10px rgba(139, 92, 246, 0.2);
+}
+
+/* ========================================
+   LIGHT MODE THEME OVERRIDES
+   ======================================== */
+
+/* Scrollbar - Light Mode */
+html.light ::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(147, 51, 234, 0.9);
+}
+
+/* Preloader - Light Mode */
+html.light #preloader {
+  background-color: var(--preloader-bg);
+}
+
+/* Navigation - Light Mode */
+html.light .liquid-glass-nav {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 
+    0 8px 32px 0 rgba(139, 92, 246, 0.1),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.9);
+}
+
+html.light .liquid-glass-nav-item {
+  color: #4c1d95;
+}
+
+html.light .liquid-glass-nav-item:hover {
+  color: white;
+}
+
+html.light .liquid-glass-nav-item.active {
+  color: white;
+}
+
+/* Mobile Navigation - Light Mode */
+html.light .liquid-glass-mobile {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 
+    0 8px 32px 0 rgba(139, 92, 246, 0.1),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.9);
+}
+
+html.light .liquid-glass-mobile-item {
+  color: #4c1d95;
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+html.light .liquid-glass-mobile-item:hover {
+  color: white;
+}
+
+html.light .liquid-glass-mobile-item.active {
+  color: white;
+}
+
+/* Mobile Menu Button - Light Mode */
+html.light .liquid-glass-button {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: #4c1d95;
+}
+
+html.light .liquid-glass-button:hover {
+  background: rgba(139, 92, 246, 0.2);
+  color: #7c3aed;
+}
+
+/* Hero Section Buttons - Light Mode */
+html.light .liquid-glass-btn {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #4c1d95;
+  box-shadow: 
+    0 4px 16px 0 rgba(139, 92, 246, 0.15),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.9);
+}
+
+html.light .liquid-glass-btn:hover {
+  color: white;
+}
+
+/* Footer - Light Mode */
+html.light .liquid-glass-footer {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 
+    0 8px 32px 0 rgba(139, 92, 246, 0.1),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.9);
+}
+
+html.light .liquid-glass-footer p {
+  color: #4c1d95;
+}
+
+/* Social Icons - Light Mode */
+html.light .liquid-glass-social-icon {
+  color: #4c1d95;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+html.light .liquid-glass-social-icon:hover {
+  color: white;
+  background: rgba(139, 92, 246, 0.8);
+}
+
+/* Home2 Section - Light Mode */
+html.light .bg-slate-900\/50 {
+  background: var(--bg-secondary) !important;
+}
+
+/* Text Colors - Light Mode */
+html.light .text-white {
+  color: var(--text-primary);
+}
+
+html.light .text-slate-300 {
+  color: var(--text-muted);
+}
+
+html.light .text-slate-400 {
+  color: #6b7280;
+}
+
+/* Preserve purple accent text */
+html.light .text-purple-400 {
+  color: #9333ea;
+}
+
+/* Social Icons in Home2 - Light Mode */
+html.light .bg-slate-800 {
+  background: rgba(139, 92, 246, 0.1);
+}
+
+html.light .bg-slate-800:hover,
+html.light .hover\:bg-slate-700:hover {
+  background: rgba(139, 92, 246, 0.2);
+}
+
+/* Card Backgrounds - Light Mode */
+html.light .card {
+  background: var(--card-bg);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+/* Avatar Border - Light Mode */
+html.light .border-purple-400\/30 {
+  border-color: rgba(147, 51, 234, 0.4);
+}
+
+/* Particles - adjust opacity in light mode */
+html.light #tsparticles {
+  opacity: 0.3;
+}
+
+/* ========================================
+   ABOUT PAGE - LIGHT MODE
+   ======================================== */
+
+/* About Card - Light Mode */
+html.light .card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);
+}
+
+html.light .card .text-slate-300,
+html.light .card p,
+html.light .card li {
+  color: #4c1d95;
+}
+
+/* Tech Arsenal Section - Light Mode */
+html.light .bg-slate-900\/40 {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(139, 92, 246, 0.2) !important;
+}
+
+html.light .bg-white\/5 {
+  background: rgba(139, 92, 246, 0.08) !important;
+}
+
+html.light .bg-white\/5:hover,
+html.light .hover\:bg-white\/10:hover {
+  background: rgba(139, 92, 246, 0.15) !important;
+}
+
+html.light .border-white\/10 {
+  border-color: rgba(139, 92, 246, 0.15) !important;
+}
+
+html.light .border-white\/5 {
+  border-color: rgba(139, 92, 246, 0.1) !important;
+}
+
+/* GitHub Calendar Section - Light Mode */
+html.light .bg-slate-800\/50 {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(139, 92, 246, 0.2) !important;
+}
+
+html.light .border-slate-700 {
+  border-color: rgba(139, 92, 246, 0.2) !important;
+}
+
+/* ========================================
+   PROJECTS PAGE - LIGHT MODE
+   ======================================== */
+
+/* Project Cards - Light Mode */
+html.light .bg-slate-900\/40.backdrop-blur-2xl,
+html.light [class*="bg-slate-900/40"][class*="backdrop-blur"] {
+  background: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Project Card Gradient Overlay - Light Mode */
+html.light .from-slate-900\/90 {
+  --tw-gradient-from: rgba(255, 255, 255, 0.9) !important;
+}
+
+html.light .to-transparent {
+  --tw-gradient-to: transparent !important;
+}
+
+/* Project Action Button - Light Mode */
+html.light .bg-white\/5.hover\:bg-purple-600 {
+  background: rgba(139, 92, 246, 0.1);
+  color: #4c1d95;
+}
+
+html.light .bg-white\/5.hover\:bg-purple-600:hover {
+  background: #9333ea;
+  color: white;
+}
+
+/* ========================================
+   RESUME PAGE - LIGHT MODE
+   ======================================== */
+
+/* Resume Background Gradients - Light Mode */
+html.light .bg-purple-900\/20 {
+  background: rgba(147, 51, 234, 0.08) !important;
+}
+
+html.light .bg-blue-900\/20 {
+  background: rgba(59, 130, 246, 0.08) !important;
+}
+
+/* Resume Header Badge - Light Mode */
+html.light .bg-slate-900.rounded-full {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Section Icon Boxes - Light Mode */
+html.light .bg-purple-900\/30 {
+  background: rgba(147, 51, 234, 0.15) !important;
+}
+
+html.light .bg-pink-900\/30 {
+  background: rgba(236, 72, 153, 0.15) !important;
+}
+
+html.light .bg-blue-900\/30 {
+  background: rgba(59, 130, 246, 0.15) !important;
+}
+
+html.light .bg-yellow-900\/30 {
+  background: rgba(234, 179, 8, 0.15) !important;
+}
+
+/* Timeline - Light Mode */
+html.light .border-purple-900\/50 {
+  border-color: rgba(147, 51, 234, 0.3) !important;
+}
+
+html.light .bg-purple-900 {
+  background: rgba(147, 51, 234, 0.3) !important;
+}
+
+html.light .border-slate-900 {
+  border-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Experience/Education Cards - Light Mode */
+html.light .bg-slate-900\/40.backdrop-blur-xl {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(139, 92, 246, 0.2) !important;
+}
+
+/* Date Badges - Light Mode */
+html.light .text-purple-300 {
+  color: #7c3aed !important;
+}
+
+html.light .text-pink-300 {
+  color: #ec4899 !important;
+}
+
+html.light .text-pink-400 {
+  color: #ec4899 !important;
+}
+
+html.light .text-blue-400 {
+  color: #3b82f6 !important;
+}
+
+html.light .text-yellow-400 {
+  color: #f59e0b !important;
+}
+
+/* Skills Section - Light Mode */
+html.light .bg-slate-800\/50 {
+  background: rgba(139, 92, 246, 0.08) !important;
+}
+
+html.light .hover\:bg-blue-900\/30:hover {
+  background: rgba(59, 130, 246, 0.15) !important;
+}
+
+html.light .hover\:text-blue-300:hover {
+  color: #3b82f6 !important;
+}
+
+/* Achievement Cards - Light Mode */
+html.light .hover\:border-yellow-500\/30:hover {
+  border-color: rgba(234, 179, 8, 0.4) !important;
+}
+
+html.light .text-yellow-500 {
+  color: #f59e0b !important;
+}
+
+html.light .hover\:text-yellow-400:hover {
+  color: #f59e0b !important;
+}
+
+/* Download CV Button - Light Mode (keeping gradient for emphasis) */
+
+/* ========================================
+   COMMON ELEMENTS - LIGHT MODE
+   ======================================== */
+
+/* Gradient Text - ensure visibility in light mode */
+html.light .text-gradient {
+  background: linear-gradient(to right, #9333ea, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hover colors for project cards */
+html.light .group-hover\:text-purple-400:hover,
+html.light .group:hover .group-hover\:text-purple-400 {
+  color: #9333ea !important;
+}
+
+html.light .group-hover\:text-pink-400:hover,
+html.light .group:hover .group-hover\:text-pink-400 {
+  color: #ec4899 !important;
+}
+
+/* Shadow colors - adjust for light mode */
+html.light .shadow-purple-500\/20,
+html.light .hover\:shadow-purple-500\/20:hover {
+  --tw-shadow-color: rgba(147, 51, 234, 0.15);
+}
+
+html.light .shadow-purple-900\/10,
+html.light .hover\:shadow-purple-900\/10:hover {
+  --tw-shadow-color: rgba(147, 51, 234, 0.08);
+}
+
+html.light .shadow-pink-900\/10,
+html.light .hover\:shadow-pink-900\/10:hover {
+  --tw-shadow-color: rgba(236, 72, 153, 0.08);
+}
+
+/* Border colors on hover */
+html.light .hover\:border-purple-500\/30:hover {
+  border-color: rgba(147, 51, 234, 0.4) !important;
+}
+
+html.light .hover\:border-pink-500\/30:hover {
+  border-color: rgba(236, 72, 153, 0.4) !important;
+}
+
+html.light .hover\:border-blue-500\/30:hover {
+  border-color: rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Next.js icon fix for light mode (it's white, needs to be visible) */
+html.light .text-white[class*="SiNextdotjs"],
+html.light .text-white.text-4xl,
+html.light .text-white.sm\:text-5xl {
+  color: #1e1b4b !important;
+}
+
+/* Tech arsenal headings */
+html.light h3.text-2xl.font-semibold.text-white {
+  color: #1e1b4b !important;
 }

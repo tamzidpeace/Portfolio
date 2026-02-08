@@ -6,10 +6,13 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
+import { BsSun, BsMoonStars } from "react-icons/bs";
+import { useUIStore } from "@/stores";
 
 const NavbarTailwind: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useUIStore();
 
   const handleToggle = useCallback(() => {
     setIsMenuOpen(prev => !prev);
@@ -47,7 +50,7 @@ const NavbarTailwind: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation - Liquid Glass Pill */}
-          <div className="hidden md:flex">
+          <div className="hidden md:flex items-center gap-4">
             <div className="liquid-glass-nav">
               {navItems.map((item) => (
                 <Link
@@ -60,26 +63,55 @@ const NavbarTailwind: React.FC = () => {
                 </Link>
               ))}
             </div>
+            
+            {/* Theme Toggle Button - Desktop */}
+            <button
+              onClick={toggleTheme}
+              className="theme-toggle-btn"
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            >
+              {theme === 'dark' ? (
+                <BsSun className="text-xl text-yellow-400" />
+              ) : (
+                <BsMoonStars className="text-xl text-purple-500" />
+              )}
+            </button>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            onClick={handleToggle}
-            className="md:hidden p-2 rounded-lg text-slate-300 hover:text-white liquid-glass-button transition-all duration-300"
-            aria-label="Toggle menu"
-          >
-            <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span className={`block w-6 h-0.5 bg-current transition-all duration-300 ${
-                isMenuOpen ? 'rotate-45 translate-y-1' : ''
-              }`}></span>
-              <span className={`block w-6 h-0.5 bg-current my-1 transition-all duration-300 ${
-                isMenuOpen ? 'opacity-0' : ''
-              }`}></span>
-              <span className={`block w-6 h-0.5 bg-current transition-all duration-300 ${
-                isMenuOpen ? '-rotate-45 -translate-y-1' : ''
-              }`}></span>
-            </div>
-          </button>
+          {/* Mobile: Theme Toggle + Menu Button */}
+          <div className="md:hidden flex items-center gap-3">
+            {/* Theme Toggle Button - Mobile */}
+            <button
+              onClick={toggleTheme}
+              className="theme-toggle-btn"
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            >
+              {theme === 'dark' ? (
+                <BsSun className="text-lg text-yellow-400" />
+              ) : (
+                <BsMoonStars className="text-lg text-purple-500" />
+              )}
+            </button>
+            
+            {/* Mobile menu button */}
+            <button
+              onClick={handleToggle}
+              className="p-2 rounded-lg text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-white liquid-glass-button transition-all duration-300"
+              aria-label="Toggle menu"
+            >
+              <div className="w-6 h-6 flex flex-col justify-center items-center">
+                <span className={`block w-6 h-0.5 bg-current transition-all duration-300 ${
+                  isMenuOpen ? 'rotate-45 translate-y-1' : ''
+                }`}></span>
+                <span className={`block w-6 h-0.5 bg-current my-1 transition-all duration-300 ${
+                  isMenuOpen ? 'opacity-0' : ''
+                }`}></span>
+                <span className={`block w-6 h-0.5 bg-current transition-all duration-300 ${
+                  isMenuOpen ? '-rotate-45 -translate-y-1' : ''
+                }`}></span>
+              </div>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation - Liquid Glass */}
