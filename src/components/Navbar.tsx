@@ -96,7 +96,7 @@ const NavbarTailwind: React.FC = () => {
             {/* Mobile menu button */}
             <button
               onClick={handleToggle}
-              className="p-2 rounded-lg text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-white liquid-glass-button transition-all duration-300"
+              className="p-2 rounded-lg text-slate-300 hover:text-white liquid-glass-button transition-all duration-300"
               aria-label="Toggle menu"
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center">

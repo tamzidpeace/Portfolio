@@ -1,15 +1,5 @@
 import { create } from 'zustand';
-
-// Get initial theme from localStorage or default to 'dark'
-const getInitialTheme = (): 'light' | 'dark' => {
-  if (typeof window !== 'undefined') {
-    const stored = localStorage.getItem('theme');
-    if (stored === 'light' || stored === 'dark') {
-      return stored;
-    }
-  }
-  return 'dark';
-};
+import { persist } from 'zustand/middleware';
 
 interface UIState {
   theme: 'light' | 'dark';
@@ -19,20 +9,20 @@ interface UIState {
   setLoading: (loading: boolean) => void;
 }
 
-export const useUIStore = create<UIState>((set, get) => ({
-  theme: getInitialTheme(),
-  isLoading: false,
-  setTheme: (theme) => {
-    localStorage.setItem('theme', theme);
-    set({ theme });
-  },
-  toggleTheme: () => {
-    const newTheme = get().theme === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('theme', newTheme);
-    set({ theme: newTheme });
-  },
-  setLoading: (isLoading) => set({ isLoading }),
-}));
+export const useUIStore = create<UIState>()(
+  persist(
+    (set, get) => ({
+      theme: 'dark',
+      isLoading: false,
+      setTheme: (theme) => set({ theme }),
+      toggleTheme: () => set({ theme: get().theme === 'dark' ? 'light' : 'dark' }),
+      setLoading: (isLoading) => set({ isLoading }),
+    }),
+    {
+      name: 'theme-storage',
+    }
+  )
+);
 
 interface PortfolioState {
   activeSection: string;
