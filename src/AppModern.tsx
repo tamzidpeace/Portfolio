@@ -27,7 +27,14 @@ const RouteLoader: React.FC = () => (
 
 function App() {
   const [load, setLoad] = useState(true);
-  const { setLoading } = useUIStore();
+  const { setLoading, theme } = useUIStore();
+  
+  // Apply theme class to document root
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.remove('light', 'dark');
+    root.classList.add(theme);
+  }, [theme]);
   
   useEffect(() => {
     const timer = setTimeout(() => {
