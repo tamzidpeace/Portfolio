@@ -1,4 +1,3 @@
-import React from "react";
 import { AiOutlineDownload } from "react-icons/ai";
 import { FaBriefcase, FaGraduationCap, FaCertificate, FaAward } from "react-icons/fa";
 import pdfUrl from "../../Assets/Arafat_Kamal_CV.pdf";
@@ -26,7 +25,7 @@ interface Cert {
 
 export default function Resume() {
   // Professional Summary from CV
-  const summary = "Full-Stack Software Engineer with 4+ years of experience building scalable, maintainable web and mobile solutions using Laravel, Vue, React, and Flutter. Successfully delivered 40+ projects including ERP, POS, E-commerce, and SaaS platforms.";
+  const summary = "Full-Stack Software Engineer with 5+ years of experience building scalable, maintainable web and mobile solutions using Laravel, Vue, React, Node.js, and Flutter. Successfully delivered 45+ projects, including ERP, POS, E-Commerce, SaaS, and Diagnostic Management platforms. Passionate about clean code, modular architecture, and solving real-world business challenges through modern technologies. Ships production features using agentic AI workflows (Claude Code, Codex, MCP-based tool orchestration) alongside traditional development—achieving up to 3x delivery velocity on complex features—and integrates LLM APIs (OpenAI, Gemini) directly into products for intelligent automation.";
 
   const experiences: Experience[] = [
     {
@@ -34,9 +33,12 @@ export default function Resume() {
       company: "Softzino Technologies",
       date: "June 2023 – Present",
       desc: [
-        "Lead development of scalable PHP and Laravel-based SaaS applications.",
-        "Built modular, maintainable codebases using Laravel packages and Vue components.",
-        "Collaborated with cross-functional teams to deliver secure, high-performance solutions."
+        "Lead developer on Hishabi—a multi-tenant inventory & POS platform (Laravel, Vue 3, Inertia.js, TypeScript, PostgreSQL) serving ~10 active tenant businesses with real-time reporting, REST API integrations, and a growing partner ecosystem.",
+        "Founding developer of Jibon Sheba—a diagnostic management platform; led Phase 1 end-to-end from architecture through production launch (role-based access control, lab test tracking, automated workflows, patient management) before transitioning ownership to a dedicated team to focus on Hishabi.",
+        "Modernized Garage Inventory, a legacy multi-tenant codebase—refactored messy patterns into clean, maintainable modules and applied performance optimizations while preserving backward compatibility for existing tenants.",
+        "Maintained 90%+ backend test coverage using PHPUnit and Pest, and established Vitest-based frontend testing patterns for the Vue 3/Inertia.js stack—including mocking strategies for Inertia, Ziggy, CASL, and internal design system components.",
+        "Integrated Claude Code and Codex with MCP servers (GitHub, Figma) into daily development workflow; built custom Telegram bot bridge for remote agentic coding sessions—achieving ~3x delivery velocity on complex features while maintaining code quality through systematic review.",
+        "Designed two-tier authentication architecture for Hishabi–Petty Cash inter-application integration: IP-whitelisted master-secret for tenant provisioning (Level 1) and per-tenant client_id/client_secret rotation for daily API calls (Level 2); chose custom Laravel middleware over Passport/Sanctum for leaner M2M auth."
       ]
     },
     {
@@ -44,9 +46,10 @@ export default function Resume() {
       company: "Genie InfoTech",
       date: "Sept 2020 – May 2023",
       desc: [
-        "Developed and maintained multi-tenant SaaS, POS, and e-commerce platforms.",
-        "Designed RESTful APIs and integrated third-party services like payment gateways and push notifications.",
-        "Delivered responsive mobile applications with Flutter."
+        "Delivered 40+ full-stack web and mobile projects across diverse domains, including E-Commerce, fleet management, diagnostic systems, and social platforms.",
+        "Built cross-platform mobile applications (Android & iOS) using Flutter with Firebase, OneSignal push notifications, and real-time features.",
+        "Developed REST APIs with Laravel and integrated third-party services, including payment gateways, WebSocket, WebRTC, and Pusher.",
+        "Led end-to-end development for international clients in Denmark (Maway, Limadi, FE-Pay) and the Middle East (Qetaty)."
       ]
     }
   ];

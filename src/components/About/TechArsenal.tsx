@@ -8,8 +8,8 @@ import {
   DiDart,
 } from "react-icons/di";
 import { BiLogoPostgresql } from "react-icons/bi";
-import { SiFirebase, SiFlutter, SiTypescript, SiCplusplus, SiNextdotjs, SiNodedotjs, SiExpress, SiMongodb, SiAmazon } from "react-icons/si";
-import { FaLaravel, FaJava, FaDocker, FaServer, FaBrain, FaNetworkWired } from "react-icons/fa";
+import { SiFirebase, SiFlutter, SiTypescript, SiCplusplus, SiNextdotjs, SiNodedotjs, SiExpress, SiMongodb } from "react-icons/si";
+import { FaLaravel, FaJava, FaDocker, FaServer, FaBrain, FaNetworkWired, FaAws } from "react-icons/fa";
 import { RiVuejsFill } from "react-icons/ri";
 
 function TechArsenal(): React.ReactElement {
@@ -36,7 +36,7 @@ function TechArsenal(): React.ReactElement {
     { icon: DiGit, name: "Git", color: "text-orange-500" },
     { icon: FaDocker, name: "Docker", color: "text-blue-500" },
     { icon: SiMongodb, name: "MongoDB", color: "text-green-500" },
-    { icon: SiAmazon, name: "AWS", color: "text-orange-400" },
+    { icon: FaAws, name: "AWS", color: "text-orange-400" },
     { icon: SiFirebase, name: "Firebase", color: "text-yellow-500" },
     { icon: DiMysql, name: "MySQL", color: "text-blue-400" },
     { icon: BiLogoPostgresql, name: "PostgreSQL", color: "text-indigo-300" },

@@ -7,7 +7,7 @@ function AboutCard(): React.ReactElement {
       <div className="p-6">
         <blockquote className="border-l-4 border-purple-400 pl-4 mb-0">
           <p className="text-slate-300 leading-relaxed text-justify">
-            Hi Everyone, I am <span className="text-purple-400 font-semibold">Arafat Kamal</span>
+            Hi Everyone, I am <span className="text-purple-400 font-semibold">Arafat Kamal </span>
             from <span className="text-purple-400 font-semibold">Dhaka, Bangladesh.</span>
             <br />I am a full stack web and mobile application developer.
             <br />
