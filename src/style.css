@@ -292,10 +292,6 @@ html {
 @media (max-width: 767px) {
   .Typewriter__wrapper {
     font-weight: 500 !important;
-    position: absolute !important;
-  }
-  .Typewriter__cursor {
-    display: none !important;
   }
 }
 
