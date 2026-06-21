@@ -15,6 +15,8 @@ const Home = lazy(() => import("@/components/Home/Home.tsx"));
 const About = lazy(() => import("@/components/About/About.tsx"));
 const Projects = lazy(() => import("@/components/Projects/Projects.tsx"));
 const Resume = lazy(() => import("@/components/Resume/Resume.tsx"));
+const Blog = lazy(() => import("@/components/Blog/Blog.tsx"));
+const BlogPost = lazy(() => import("@/components/Blog/BlogPost.tsx"));
 
 // Loading component for Suspense
 const RouteLoader: React.FC = () => (
@@ -61,6 +63,8 @@ function App() {
               <Route path="/project" element={<Projects />} />
               <Route path="/about" element={<About />} />
               <Route path="/resume" element={<Resume />} />
+              <Route path="/blogs" element={<Blog />} />
+              <Route path="/blogs/:slug" element={<BlogPost />} />
             </Routes>
           </Suspense>
           <Footer />

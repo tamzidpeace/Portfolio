@@ -6,7 +6,7 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
-import { BsSun, BsMoonStars } from "react-icons/bs";
+import { BsSun, BsMoonStars, BsPencil } from "react-icons/bs";
 import { useUIStore } from "@/stores";
 
 const NavbarTailwind: React.FC = () => {
@@ -27,10 +27,14 @@ const NavbarTailwind: React.FC = () => {
     { path: "/about", icon: AiOutlineUser, label: "About" },
     { path: "/project", icon: AiOutlineFundProjectionScreen, label: "Projects" },
     { path: "/resume", icon: CgFileDocument, label: "Resume" },
+    { path: "/blogs", icon: BsPencil, label: "Blogs" },
   ];
 
   const isActive = (path: string) => {
-    return location.pathname === path;
+    if (path === "/") {
+      return location.pathname === path;
+    }
+    return location.pathname === path || location.pathname.startsWith(`${path}/`);
   };
 
   return (

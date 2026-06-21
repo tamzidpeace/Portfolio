@@ -1,0 +1,11 @@
+[
+  {
+    "slug": "brief-history-of-php",
+    "title": "Brief History of PHP - From Personal Tool to the Web's Backbone",
+    "date": "2026-06-21",
+    "excerpt": "A brief history of php.",
+    "tags": ["php", "zend"],
+    "file": "/blogs/brief-history-of-php.md",
+    "readingTime": "5 min"
+  }
+]
