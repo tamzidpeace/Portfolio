@@ -4,6 +4,7 @@ export interface BlogTranslation {
   title: string;
   excerpt: string;
   file: string;
+  thumbnail?: string;
 }
 
 export interface BlogPostMeta {
@@ -14,6 +15,7 @@ export interface BlogPostMeta {
   tags: string[];
   file: string;
   readingTime: string;
+  thumbnail?: string;
   translations?: Partial<Record<BlogLanguage, BlogTranslation>>;
 }
 

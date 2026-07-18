@@ -20,6 +20,7 @@ const manifest = [
     tags: ['react'],
     file: '/blogs/second-post.md',
     readingTime: '3 min',
+    thumbnail: '/blogs/second-post-cover.png',
   },
 ];
 
@@ -66,4 +67,20 @@ test('renders tag pills', async () => {
     expect(screen.getAllByText('#general').length).toBeGreaterThan(0);
   });
   expect(screen.getAllByText('#react').length).toBeGreaterThan(0);
+});
+
+test('renders thumbnails when provided and keeps fallback for posts without one', async () => {
+  const { container } = render(
+    <MemoryRouter>
+      <Blog />
+    </MemoryRouter>
+  );
+
+  await waitFor(() => {
+    expect(screen.getByText('Welcome to My Blog')).toBeInTheDocument();
+  });
+
+  expect(screen.getByAltText('Second Post cover')).toHaveAttribute('src', '/blogs/second-post-cover.png');
+  expect(screen.queryByAltText('Welcome to My Blog cover')).not.toBeInTheDocument();
+  expect(container.textContent).toContain('W');
 });
