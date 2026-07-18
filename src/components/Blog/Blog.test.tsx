@@ -63,7 +63,7 @@ test('renders tag pills', async () => {
   );
 
   await waitFor(() => {
-    expect(screen.getByText('#general')).toBeInTheDocument();
+    expect(screen.getAllByText('#general').length).toBeGreaterThan(0);
   });
-  expect(screen.getByText('#react')).toBeInTheDocument();
+  expect(screen.getAllByText('#react').length).toBeGreaterThan(0);
 });

@@ -52,7 +52,13 @@ test('renders a blog post by slug', async () => {
     expect(screen.getByText('Welcome to My Blog')).toBeInTheDocument();
   });
   expect(screen.getByText('Hello World')).toBeInTheDocument();
-  expect(screen.getByText('This is a test post with')).toBeInTheDocument();
+  expect(
+    screen.getByText(
+      (_, node) =>
+        node?.tagName === 'P' &&
+        node.textContent === 'This is a test post with code.'
+    )
+  ).toBeInTheDocument();
 });
 
 test('shows not-found for unknown slug', async () => {
@@ -65,6 +71,6 @@ test('shows not-found for unknown slug', async () => {
   );
 
   await waitFor(() => {
-    expect(screen.getByText(/Post not found/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Post not found/i })).toBeInTheDocument();
   });
 });
