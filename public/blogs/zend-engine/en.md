@@ -1,6 +1,6 @@
 # What Is the Zend Engine? How PHP Code Actually Runs
 
-![image.png](en-cover.png)
+![image.png](/blogs/zend-engine/en-cover.png)
 
 Imagine writing a small PHP file:
 
@@ -22,7 +22,7 @@ Put simply, a `.php` file does not run by itself. The Zend Engine moves it throu
 
 The name **Zend** comes from the names **Zeev Suraski** and **Andi Gutmans**: **"Ze"** from Zeev and **"nd"** from Andi. Both played important roles in the early development of PHP and in the creation of the Zend Engine.
 
-![zend-engine-creators.png](en-creators.png)
+![zend-engine-creators.png](/blogs/zend-engine/en-creators.png)
 
 *Zeev Suraski (left) and Andi Gutmans (right), associated with the creation of the Zend Engine.*
 
@@ -43,7 +43,7 @@ You can think of the Zend Engine as PHP's brain. It determines how code is under
 
 From the moment a PHP script is loaded until it produces output, the Zend Engine moves through several important stages. The diagram below shows the journey at a high level.
 
-![zend-engine-execution-flow.png](en-execution-flow.png)
+![zend-engine-execution-flow.png](/blogs/zend-engine/en-execution-flow.png)
 
 *From PHP source code to Zend VM execution. OPcache can reuse compiled opcodes on later requests.*
 

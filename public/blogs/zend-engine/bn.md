@@ -1,6 +1,6 @@
 # Zend Engine কী: PHP কোড আসলে কীভাবে চলে?
 
-![image.png](bn-cover.png)
+![image.png](/blogs/zend-engine/bn-cover.png)
 
 ধরুন, আপনি একটি ছোট PHP file লিখলেন।
 
@@ -20,7 +20,7 @@ echo "Hello, World!";
 
 **Zend** নামটি এসেছে **Zeev Suraski** ও **Andi Gutmans**-এর নামের সংমিশ্রণ থেকে: Zeev-এর **“Ze”** এবং Andi-এর **“nd”**। তাঁরা PHP-এর early development এবং Zend Engine তৈরিতে গুরুত্বপূর্ণ ভূমিকা রেখেছিলেন।
 
-![image.png](bn-creators.png)
+![image.png](/blogs/zend-engine/bn-creators.png)
 
 *Zeev Suraski (left) and Andi Gutmans (right), associated with the creation of the Zend Engine.*
 
@@ -41,7 +41,7 @@ PHP
 
 একটি PHP script চালানোর সময় Zend Engine সাধারণত চারটি মূল ধাপ পার করে। নিচের diagram-এ সেই process এক নজরে দেখা যাক:
 
-![image.png](bn-execution-flow.png)
+![image.png](/blogs/zend-engine/bn-execution-flow.png)
 
 ### ধাপ ১: Lexing বা Tokenizing
 

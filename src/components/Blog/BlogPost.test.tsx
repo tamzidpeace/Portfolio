@@ -55,13 +55,19 @@ beforeEach(() => {
     if (s.endsWith('/blogs/zend-engine/bn.md')) {
       return Promise.resolve({
         ok: true,
-        text: () => Promise.resolve('# বাংলা Zend Engine'),
+        text: () =>
+          Promise.resolve(
+            '# বাংলা Zend Engine\n\n![Bengali cover](/blogs/zend-engine/bn-cover.png)\n\n![Bengali creators](/blogs/zend-engine/bn-creators.png)\n\n![Bengali execution flow](/blogs/zend-engine/bn-execution-flow.png)'
+          ),
       } as Response);
     }
     if (s.endsWith('/blogs/zend-engine/en.md')) {
       return Promise.resolve({
         ok: true,
-        text: () => Promise.resolve('# English Zend Engine'),
+        text: () =>
+          Promise.resolve(
+            '# English Zend Engine\n\n![English cover](/blogs/zend-engine/en-cover.png)\n\n![English creators](/blogs/zend-engine/en-creators.png)\n\n![English execution flow](/blogs/zend-engine/en-execution-flow.png)'
+          ),
       } as Response);
     }
     return Promise.reject(new Error('unexpected fetch'));
@@ -125,6 +131,12 @@ test('defaults a bilingual post to Bengali', async () => {
   expect(screen.getByRole('button', { name: 'English' })).toHaveAttribute('aria-pressed', 'false');
   expect(screen.getByRole('article')).toHaveAttribute('lang', 'bn');
   expect(global.fetch).toHaveBeenCalledWith('/blogs/zend-engine/bn.md');
+  expect(screen.getByAltText('Bengali cover')).toHaveAttribute('src', '/blogs/zend-engine/bn-cover.png');
+  expect(screen.getByAltText('Bengali creators')).toHaveAttribute('src', '/blogs/zend-engine/bn-creators.png');
+  expect(screen.getByAltText('Bengali execution flow')).toHaveAttribute(
+    'src',
+    '/blogs/zend-engine/bn-execution-flow.png'
+  );
 });
 
 test('switches a bilingual post to English', async () => {
@@ -146,6 +158,12 @@ test('switches a bilingual post to English', async () => {
   expect(screen.getByRole('button', { name: 'English' })).toHaveAttribute('aria-pressed', 'true');
   expect(screen.getByRole('article')).toHaveAttribute('lang', 'en');
   expect(global.fetch).toHaveBeenCalledWith('/blogs/zend-engine/en.md');
+  expect(screen.getByAltText('English cover')).toHaveAttribute('src', '/blogs/zend-engine/en-cover.png');
+  expect(screen.getByAltText('English creators')).toHaveAttribute('src', '/blogs/zend-engine/en-creators.png');
+  expect(screen.getByAltText('English execution flow')).toHaveAttribute(
+    'src',
+    '/blogs/zend-engine/en-execution-flow.png'
+  );
 });
 
 test('does not show language controls for a legacy post', async () => {

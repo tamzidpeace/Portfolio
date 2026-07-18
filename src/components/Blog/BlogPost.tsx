@@ -148,12 +148,16 @@ function BlogPost(): React.ReactElement {
             {/* Post header */}
             <header className="mb-10">
               {isBilingual && (
-                <div className="flex items-center gap-2 mb-5" aria-label="Article language">
+                <div className="flex items-center gap-2 mb-5" role="group" aria-label="Article language">
                   <button
                     type="button"
                     onClick={() => setLanguage("bn")}
                     aria-pressed={language === "bn"}
-                    className="px-4 py-2 rounded-full bg-white/5 hover:bg-purple-600 border border-white/10 hover:border-purple-500 text-white text-sm font-medium transition-all duration-300"
+                    className={`px-4 py-2 rounded-full border text-sm font-medium transition-all duration-300 ${
+                      language === "bn"
+                        ? "bg-purple-600 border-purple-500 text-white"
+                        : "bg-white/5 hover:bg-purple-600 border-white/10 hover:border-purple-500 text-white"
+                    }`}
                   >
                     বাংলা
                   </button>
@@ -161,7 +165,11 @@ function BlogPost(): React.ReactElement {
                     type="button"
                     onClick={() => setLanguage("en")}
                     aria-pressed={language === "en"}
-                    className="px-4 py-2 rounded-full bg-white/5 hover:bg-purple-600 border border-white/10 hover:border-purple-500 text-white text-sm font-medium transition-all duration-300"
+                    className={`px-4 py-2 rounded-full border text-sm font-medium transition-all duration-300 ${
+                      language === "en"
+                        ? "bg-purple-600 border-purple-500 text-white"
+                        : "bg-white/5 hover:bg-purple-600 border-white/10 hover:border-purple-500 text-white"
+                    }`}
                   >
                     English
                   </button>
