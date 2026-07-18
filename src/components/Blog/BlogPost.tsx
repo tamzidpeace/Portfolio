@@ -3,9 +3,14 @@ import { Link, useParams } from "react-router-dom";
 import { BsArrowLeft, BsClock, BsTag } from "react-icons/bs";
 import Particle from "../Particle.tsx";
 import BlogMarkdown from "./BlogMarkdown.tsx";
-import type { BlogPostMeta } from "@/types/blog";
+import type { BlogLanguage, BlogPostMeta } from "@/types/blog";
 
 const MANIFEST_URL = "/blogs/manifest.json";
+const DEFAULT_LANGUAGE: BlogLanguage = "bn";
+
+function getTranslation(meta: BlogPostMeta, language: BlogLanguage) {
+  return meta.translations?.[language];
+}
 
 function formatDate(iso: string): string {
   const d = new Date(iso);
@@ -23,6 +28,7 @@ function BlogPost(): React.ReactElement {
   const [content, setContent] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [language, setLanguage] = useState<BlogLanguage>(DEFAULT_LANGUAGE);
 
   useEffect(() => {
     if (!slug) {
@@ -48,15 +54,36 @@ function BlogPost(): React.ReactElement {
         if (!found) throw new Error("Post not found");
         if (cancelled) return;
         setMeta(found);
-        return fetch(found.file);
+        setLanguage(DEFAULT_LANGUAGE);
       })
+      .catch((err: unknown) => {
+        if (cancelled) return;
+        setError(err instanceof Error ? err.message : "Failed to load post");
+        setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
+
+  useEffect(() => {
+    if (!meta) return;
+
+    let cancelled = false;
+    const file = getTranslation(meta, language)?.file ?? meta.file;
+
+    setLoading(true);
+    setError(null);
+    setContent("");
+
+    fetch(file)
       .then((res) => {
-        if (!res) return undefined;
         if (!res.ok) throw new Error(`Failed to load post (${res.status})`);
         return res.text();
       })
       .then((text) => {
-        if (cancelled || text === undefined) return;
+        if (cancelled) return;
         setContent(text);
       })
       .catch((err: unknown) => {
@@ -71,7 +98,11 @@ function BlogPost(): React.ReactElement {
     return () => {
       cancelled = true;
     };
-  }, [slug]);
+  }, [meta, language]);
+
+  const activeTranslation = meta ? getTranslation(meta, language) : undefined;
+  const activeTitle = activeTranslation?.title ?? meta?.title;
+  const isBilingual = Boolean(meta?.translations?.bn && meta?.translations?.en);
 
   return (
     <section className="relative min-h-screen py-20 mt-20">
@@ -102,7 +133,7 @@ function BlogPost(): React.ReactElement {
         )}
 
         {!loading && !error && meta && (
-          <article>
+          <article lang={isBilingual ? language : undefined}>
             {/* Back to all posts — left-aligned above title */}
             <div className="flex justify-start mb-8">
               <Link
@@ -116,8 +147,28 @@ function BlogPost(): React.ReactElement {
 
             {/* Post header */}
             <header className="mb-10">
+              {isBilingual && (
+                <div className="flex items-center gap-2 mb-5" aria-label="Article language">
+                  <button
+                    type="button"
+                    onClick={() => setLanguage("bn")}
+                    aria-pressed={language === "bn"}
+                    className="px-4 py-2 rounded-full bg-white/5 hover:bg-purple-600 border border-white/10 hover:border-purple-500 text-white text-sm font-medium transition-all duration-300"
+                  >
+                    বাংলা
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setLanguage("en")}
+                    aria-pressed={language === "en"}
+                    className="px-4 py-2 rounded-full bg-white/5 hover:bg-purple-600 border border-white/10 hover:border-purple-500 text-white text-sm font-medium transition-all duration-300"
+                  >
+                    English
+                  </button>
+                </div>
+              )}
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-                {meta.title}
+                {activeTitle}
               </h1>
 
               <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400">
