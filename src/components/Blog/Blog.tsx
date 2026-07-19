@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Particle from "../Particle.tsx";
 import BlogList from "./BlogList.tsx";
+import { getVersionedBlogAssetUrl } from "./blogAssets.ts";
 import type { BlogPostMeta } from "@/types/blog";
 
 const MANIFEST_URL = "/blogs/manifest.json";
@@ -14,7 +15,7 @@ function Blog(): React.ReactElement {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    fetch(MANIFEST_URL)
+    fetch(getVersionedBlogAssetUrl(MANIFEST_URL))
       .then((res) => {
         if (!res.ok) {
           throw new Error(`Failed to load blog manifest (${res.status})`);
@@ -55,7 +56,7 @@ function Blog(): React.ReactElement {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
-            My <strong className="text-gradient">Blog</strong>
+            My <strong className="text-gradient">Blogs</strong>
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             Thoughts on software engineering, side projects, and lessons learned along the way.

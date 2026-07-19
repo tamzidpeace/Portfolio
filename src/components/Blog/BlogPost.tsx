@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { BsArrowLeft, BsClock, BsTag } from "react-icons/bs";
 import Particle from "../Particle.tsx";
 import BlogMarkdown from "./BlogMarkdown.tsx";
+import { getVersionedBlogAssetUrl } from "./blogAssets.ts";
 import type { BlogLanguage, BlogPostMeta } from "@/types/blog";
 
 const MANIFEST_URL = "/blogs/manifest.json";
@@ -43,7 +44,7 @@ function BlogPost(): React.ReactElement {
     setContent("");
     setMeta(null);
 
-    fetch(MANIFEST_URL)
+    fetch(getVersionedBlogAssetUrl(MANIFEST_URL))
       .then((res) => {
         if (!res.ok) throw new Error(`Failed to load manifest (${res.status})`);
         return res.json() as Promise<BlogPostMeta[]>;
@@ -77,7 +78,7 @@ function BlogPost(): React.ReactElement {
     setError(null);
     setContent("");
 
-    fetch(file)
+    fetch(getVersionedBlogAssetUrl(file))
       .then((res) => {
         if (!res.ok) throw new Error(`Failed to load post (${res.status})`);
         return res.text();

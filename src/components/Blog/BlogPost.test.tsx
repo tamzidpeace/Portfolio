@@ -39,7 +39,7 @@ const md = '# Hello World\n\nThis is a test post with `code`.\n\n- one\n- two';
 
 beforeEach(() => {
   jest.spyOn(global, 'fetch').mockImplementation((url: any) => {
-    const s = String(url);
+    const s = String(url).split('?')[0];
     if (s.endsWith('/blogs/manifest.json')) {
       return Promise.resolve({
         ok: true,
@@ -130,7 +130,7 @@ test('defaults a bilingual post to Bengali', async () => {
   expect(screen.getByRole('button', { name: 'বাংলা' })).toHaveAttribute('aria-pressed', 'true');
   expect(screen.getByRole('button', { name: 'English' })).toHaveAttribute('aria-pressed', 'false');
   expect(screen.getByRole('article')).toHaveAttribute('lang', 'bn');
-  expect(global.fetch).toHaveBeenCalledWith('/blogs/zend-engine/bn.md');
+  expect(global.fetch).toHaveBeenCalledWith(expect.stringMatching(/^\/blogs\/zend-engine\/bn\.md\?v=/));
   expect(screen.getByAltText('Bengali cover')).toHaveAttribute('src', '/blogs/zend-engine/bn-cover.png');
   expect(screen.getByAltText('Bengali creators')).toHaveAttribute('src', '/blogs/zend-engine/bn-creators.png');
   expect(screen.getByAltText('Bengali execution flow')).toHaveAttribute(
@@ -157,7 +157,7 @@ test('switches a bilingual post to English', async () => {
 
   expect(screen.getByRole('button', { name: 'English' })).toHaveAttribute('aria-pressed', 'true');
   expect(screen.getByRole('article')).toHaveAttribute('lang', 'en');
-  expect(global.fetch).toHaveBeenCalledWith('/blogs/zend-engine/en.md');
+  expect(global.fetch).toHaveBeenCalledWith(expect.stringMatching(/^\/blogs\/zend-engine\/en\.md\?v=/));
   expect(screen.getByAltText('English cover')).toHaveAttribute('src', '/blogs/zend-engine/en-cover.png');
   expect(screen.getByAltText('English creators')).toHaveAttribute('src', '/blogs/zend-engine/en-creators.png');
   expect(screen.getByAltText('English execution flow')).toHaveAttribute(
