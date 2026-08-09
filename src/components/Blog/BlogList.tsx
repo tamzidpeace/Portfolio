@@ -27,13 +27,24 @@ function BlogList({ posts }: BlogListProps): React.ReactElement {
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-purple-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-          {/* Accent header strip in place of a cover image */}
           <div className="relative h-32 overflow-hidden bg-gradient-to-br from-purple-600/30 via-pink-600/20 to-indigo-600/30">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-5xl font-bold text-white/20 group-hover:text-white/30 transition-colors duration-500">
-                {post.title.charAt(0)}
-              </span>
-            </div>
+            {post.thumbnail ? (
+              <>
+                <img
+                  src={post.thumbnail}
+                  alt={`${post.title} cover`}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-slate-950/30" />
+              </>
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-5xl font-bold text-white/20 group-hover:text-white/30 transition-colors duration-500">
+                  {post.title.charAt(0)}
+                </span>
+              </div>
+            )}
             <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-slate-900/80 to-transparent" />
           </div>
 

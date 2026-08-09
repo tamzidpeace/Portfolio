@@ -7,5 +7,29 @@
     "tags": ["php", "zend"],
     "file": "/blogs/brief-history-of-php.md",
     "readingTime": "5 min"
+  },
+  {
+    "slug": "what-is-the-zend-engine",
+    "title": "Zend Engine কী: PHP কোড আসলে কীভাবে চলে?",
+    "date": "2026-07-18",
+    "excerpt": "Zend Engine কীভাবে PHP কোডকে token, AST ও opcode হয়ে execute করে তা জানুন।",
+    "tags": ["php", "zend-engine", "internals"],
+    "file": "/blogs/zend-engine/bn.md",
+    "readingTime": "7 min",
+    "thumbnail": "/blogs/zend-engine/bn-cover.png",
+    "translations": {
+      "bn": {
+        "title": "Zend Engine কী: PHP কোড আসলে কীভাবে চলে?",
+        "excerpt": "Zend Engine কীভাবে PHP কোডকে token, AST ও opcode হয়ে execute করে তা জানুন।",
+        "file": "/blogs/zend-engine/bn.md",
+        "thumbnail": "/blogs/zend-engine/bn-cover.png"
+      },
+      "en": {
+        "title": "What Is the Zend Engine? How PHP Code Actually Runs",
+        "excerpt": "Learn how the Zend Engine turns PHP code into tokens, an AST, opcodes, and output.",
+        "file": "/blogs/zend-engine/en.md",
+        "thumbnail": "/blogs/zend-engine/en-cover.png"
+      }
+    }
   }
 ]

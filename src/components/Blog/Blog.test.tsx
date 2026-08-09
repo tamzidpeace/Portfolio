@@ -20,12 +20,13 @@ const manifest = [
     tags: ['react'],
     file: '/blogs/second-post.md',
     readingTime: '3 min',
+    thumbnail: '/blogs/second-post-cover.png',
   },
 ];
 
 beforeEach(() => {
   jest.spyOn(global, 'fetch').mockImplementation((url: any) => {
-    if (String(url).endsWith('/blogs/manifest.json')) {
+    if (String(url).split('?')[0].endsWith('/blogs/manifest.json')) {
       return Promise.resolve({
         ok: true,
         json: () => Promise.resolve(manifest),
@@ -50,6 +51,7 @@ test('renders blog list from manifest', async () => {
     expect(screen.getByText('Welcome to My Blog')).toBeInTheDocument();
   });
   expect(screen.getByText('Second Post')).toBeInTheDocument();
+  expect(global.fetch).toHaveBeenCalledWith(expect.stringMatching(/^\/blogs\/manifest\.json\?v=/));
   const readMoreLinks = screen.getAllByRole('link', { name: /Read more/i });
   expect(readMoreLinks.length).toBeGreaterThan(0);
   expect(readMoreLinks[0]).toHaveAttribute('href', '/blogs/welcome-to-my-blog');
@@ -63,7 +65,23 @@ test('renders tag pills', async () => {
   );
 
   await waitFor(() => {
-    expect(screen.getByText('#general')).toBeInTheDocument();
+    expect(screen.getAllByText('#general').length).toBeGreaterThan(0);
   });
-  expect(screen.getByText('#react')).toBeInTheDocument();
+  expect(screen.getAllByText('#react').length).toBeGreaterThan(0);
+});
+
+test('renders thumbnails when provided and keeps fallback for posts without one', async () => {
+  const { container } = render(
+    <MemoryRouter>
+      <Blog />
+    </MemoryRouter>
+  );
+
+  await waitFor(() => {
+    expect(screen.getByText('Welcome to My Blog')).toBeInTheDocument();
+  });
+
+  expect(screen.getByAltText('Second Post cover')).toHaveAttribute('src', '/blogs/second-post-cover.png');
+  expect(screen.queryByAltText('Welcome to My Blog cover')).not.toBeInTheDocument();
+  expect(container.textContent).toContain('W');
 });
